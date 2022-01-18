@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SNFZssOInsDJ12twJYM0IJ8IzyqgZI92kYAor+TtHhAXZ18A056niZHvmelweVVHXy/cuE14zPhT6muPpsmKJg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\birolini.17464\\Downloads\\progetto_pcto\\progetto_pcto\\progetto_pcto.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\birolini.17464\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}
