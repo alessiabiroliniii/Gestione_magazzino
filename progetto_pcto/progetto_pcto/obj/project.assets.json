@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\birolini.17464\\Downloads\\progetto_pcto\\progetto_pcto\\progetto_pcto.csproj",
+      "projectUniqueName": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\progetto_pcto\\progetto_pcto\\progetto_pcto.csproj",
       "projectName": "progetto_pcto",
-      "projectPath": "C:\\Users\\birolini.17464\\Downloads\\progetto_pcto\\progetto_pcto\\progetto_pcto.csproj",
+      "projectPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\progetto_pcto\\progetto_pcto\\progetto_pcto.csproj",
       "packagesPath": "C:\\Users\\birolini.17464\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\birolini.17464\\Downloads\\progetto_pcto\\progetto_pcto\\obj\\",
+      "outputPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\progetto_pcto\\progetto_pcto\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
