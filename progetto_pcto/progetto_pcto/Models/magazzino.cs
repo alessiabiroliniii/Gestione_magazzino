@@ -9,7 +9,7 @@ namespace progetto_pcto.Models
     public class magazzino
     {
         [Key]
-        public string codice { get; set; }
+        public int codice { get; set; }
         [Required]
         public string nome { get; set; }
         [Required]

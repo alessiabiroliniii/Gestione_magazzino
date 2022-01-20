@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YDsGXO1uDqf54RXVoeceuzC2K97DaVyxdDk2RXRCO6SL6ZIXP50FZ1zxGyLDY1dw0n7fQC1t6nMI9XaJBVtnfg==",
+  "dgSpecHash": "jk931GdqAGuFI2MfZRX6S11J7w5j1RFqc4fHIpox+N6nSiWbQTmCLFXlNwFqvy5FhrLAWXrCC4Cg6nAKH43QjA==",
   "success": true,
   "projectFilePath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\progetto_pcto\\progetto_pcto\\progetto_pcto.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\birolini.17464\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
