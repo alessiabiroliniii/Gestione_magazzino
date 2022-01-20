@@ -9,7 +9,7 @@ namespace progetto_pcto.Models
     public class Prodotto
     {
         [Key]
-        public intg codice { get; set; }
+        public int codice { get; set; }
         [Required]
         public string nome { get; set; }
     }
