@@ -1,2 +1,0 @@
-link per alessia:
-https://stackoverflow.com/questions/55850179/how-can-we-use-httpclient-in-asp-net-core
