@@ -1,0 +1,23 @@
+﻿@page
+@model Gestione_Magazzino.Pages.Magazzino.IndexModel
+@{
+}
+<h2>Visualizza</h2>
+<p></p>
+<div class="row">
+    @foreach (var item in Model.Ele)
+    {
+        <div class="card" style="width: 18rem; margin-left:1rem">
+            <div class="card-body">
+                <h5 class="card-title">ID: @item.idPrestazione</h5>
+                <h5 class="card-title">Tipo: @item.TipoPrestazione</h5>
+                <h5 class="card-title">Sede: @item.Sede</h5>
+                <h5 class="card-title">Data: @item.Data.ToString()</h5>
+                <h5 class="card-title">Codice Fiscale: @item.CodiceFiscale</h5>
+                <h5 class="card-title">Costo: @item.costo</h5>
+            </div>
+            <a class="btn-danger" asp-page="./Delete" asp-route-id="@item.idPrestazione">Elimina</a>
+            <a class="btn-dark" asp-page="./Edit" asp-route-id="@item.idPrestazione">Modifica</a>
+        </div>
+    }
+</div>

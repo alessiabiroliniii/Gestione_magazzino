@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1kd6HvncqRxYiu5Mj1FQysdWL9Lc3WhULKGFqqsygtAKJQUI8CLgMQqeb9jYr273uksVLVY6H9lkqGz9Wc7JPw==",
+  "dgSpecHash": "U96aPgMWDBtXSWvxyG56BOmD62V/n62R9ALHVrRVUDeyjTov7eIrsAtjjlXrKpAHxjygqdCfWj5PoP0ejzSN8w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\birolini.17464\\Desktop\\Gestione_Magazzino\\Gestione_Magazzino\\Gestione_Magazzino.csproj",
+  "projectFilePath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_Magazzino\\Gestione_Magazzino.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\birolini.17464\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\birolini.17464\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.4\\microsoft.aspnetcore.cryptography.internal.5.0.4.nupkg.sha512",

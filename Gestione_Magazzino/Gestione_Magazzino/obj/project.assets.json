@@ -6111,11 +6111,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\birolini.17464\\Desktop\\Gestione_Magazzino\\Gestione_Magazzino\\Gestione_Magazzino.csproj",
+      "projectUniqueName": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_Magazzino\\Gestione_Magazzino.csproj",
       "projectName": "Gestione_Magazzino",
-      "projectPath": "C:\\Users\\birolini.17464\\Desktop\\Gestione_Magazzino\\Gestione_Magazzino\\Gestione_Magazzino.csproj",
+      "projectPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_Magazzino\\Gestione_Magazzino.csproj",
       "packagesPath": "C:\\Users\\birolini.17464\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\birolini.17464\\Desktop\\Gestione_Magazzino\\Gestione_Magazzino\\obj\\",
+      "outputPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_Magazzino\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

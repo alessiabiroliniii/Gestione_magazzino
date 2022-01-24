@@ -1,0 +1,18 @@
+﻿@page
+@model Gestione_Magazzino.Pages.Magazzino.DeleteModel
+@{
+}
+<h2>Elimina</h2>
+<p></p>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Tipo: @Model.Prestazione.TipoPrestazione</h5>
+        <h5 class="card-title">Sede: @Model.Prestazione.Sede</h5>
+        <h5 class="card-title">Data: @Model.Prestazione.Data.ToString()</h5>
+        <h5 class="card-title">Codice Fiscale: @Model.Prestazione.CodiceFiscale</h5>
+        <h5 class="card-title">Costo: @Model.Prestazione.costo</h5>
+    </div>
+    <form method="post">
+        <button class="btn-danger" asp-route-id="@Model.Prestazione.idPrestazione">Elimina</button>
+    </form>
+</div>

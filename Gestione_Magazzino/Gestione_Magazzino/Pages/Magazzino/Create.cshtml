@@ -1,0 +1,32 @@
+﻿@page
+@model Gestione_Magazzino.Pages.Magazzino.CreateModel
+@{
+}
+<h2>Inserimento</h2>
+<p></p>
+<form method="post">
+    <div class="card" style="width: 18rem; margin-left:1rem">
+        <div class="card-body">
+            <h5>Sede:</h5>
+            <div class="dropdown">
+                <select asp-for="@Model.Prestazione.Sede">
+                    <option>Bergamo</option>
+                    <option>Brescia</option>
+                </select>
+            </div>
+            <h5>Data:</h5>
+            <input type="date" asp-for="@Model.Prestazione.Data" />
+            <h5>Tipo Prestazione</h5>
+            <div class="dropdown">
+                <select asp-for="@Model.Prestazione.TipoPrestazione">
+                    <option>Analisi del sangue</option>
+                    <option>Analisi urina</option>
+                    <option>Test Covid</option>
+                </select>
+            </div>
+            <h5>Codice Fiscale:</h5>
+            <input type="text" asp-for="@Model.Prestazione.CodiceFiscale" />
+        </div>
+        <button type="submit">Inserisci</button>
+    </div>
+</form>
