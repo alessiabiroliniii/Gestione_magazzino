@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/yzOnGu7+DKksFbyE+fH3Oh8wioHmMaBL7wA+HjHiGiNLMuc1K9zFRlC0chtjonKNPH4VUPNk0xAwueh5gtsbA==",
+  "dgSpecHash": "UTVr4+U29yzHUzpC6UCPYaeaUwfvKjeDAAyum6HlRInPk9MShvFyODnjRuvVAfUeKnFcIL+uv3jvGZSClzyIPw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests1\\Gestione_MagazzinoTests1.csproj",
+  "projectFilePath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests1\\Gestione_MagazzinoTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\birolini.17464\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\birolini.17464\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

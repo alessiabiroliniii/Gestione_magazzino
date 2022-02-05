@@ -34,6 +34,16 @@ namespace Gestione_Magazzino
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+
+            services.AddHttpClient();
+            services.AddHttpClient("github", c =>
+            {
+                c.BaseAddress = new Uri("https://api.github.com/");
+                // Github API versioning
+                c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
+                // Github requires a user-agent
+                c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

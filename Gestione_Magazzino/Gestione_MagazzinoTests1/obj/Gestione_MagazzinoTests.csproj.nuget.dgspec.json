@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests\\Gestione_MagazzinoTests.csproj": {}
+    "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests1\\Gestione_MagazzinoTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests\\Gestione_MagazzinoTests.csproj": {
+    "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests1\\Gestione_MagazzinoTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests\\Gestione_MagazzinoTests.csproj",
+        "projectUniqueName": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests1\\Gestione_MagazzinoTests.csproj",
         "projectName": "Gestione_MagazzinoTests",
-        "projectPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests\\Gestione_MagazzinoTests.csproj",
+        "projectPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests1\\Gestione_MagazzinoTests.csproj",
         "packagesPath": "C:\\Users\\birolini.17464\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests\\obj\\",
+        "outputPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_MagazzinoTests1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

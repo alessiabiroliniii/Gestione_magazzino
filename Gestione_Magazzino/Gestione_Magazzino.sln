@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestione_Magazzino", "Gestione_Magazzino\Gestione_Magazzino.csproj", "{20DBF71E-4516-48D9-8DE0-159530BCEEE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestione_MagazzinoTests1", "Gestione_MagazzinoTests1\Gestione_MagazzinoTests1.csproj", "{3165AB73-02F6-4FE1-A053-3F81379EB737}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestione_MagazzinoTests", "Gestione_MagazzinoTests1\Gestione_MagazzinoTests.csproj", "{3165AB73-02F6-4FE1-A053-3F81379EB737}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
