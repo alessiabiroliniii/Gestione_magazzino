@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestione_Magazzino.Models
 {
-    public class Magazzino
+    public class magazzino
     {
         [Key]
         public int codice { get; set; }

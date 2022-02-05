@@ -13,6 +13,6 @@ namespace gestione_magazzino.Data
         {
 
         }
-        public DbSet<Magazzino> Prodotti { get; set; }
+        public DbSet<magazzino> Prodotti { get; set; }
     }
 }

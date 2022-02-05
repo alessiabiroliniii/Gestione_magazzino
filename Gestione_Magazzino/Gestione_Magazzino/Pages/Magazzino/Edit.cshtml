@@ -2,30 +2,16 @@
 @model Gestione_Magazzino.Pages.Magazzino.EditModel
 @{
 }
-<form method="post">
-    <div class="card" style="width: 18rem; margin-left:1rem">
-        <div class="card-body">
-            <input type="hidden" asp-for="@Model.Prestazione.idPrestazione" />
-            <h5>Sede:</h5>
-            <div class="dropdown">
-                <select asp-for="@Model.Prestazione.Sede">
-                    <option>Bergamo</option>
-                    <option>Brescia</option>
-                </select>
-            </div>
-            <h5>Data:</h5>
-            <input type="date" asp-for="@Model.Prestazione.Data" />
-            <h5>Tipo Prestazione</h5>
-            <div class="dropdown">
-                <select asp-for="@Model.Prestazione.TipoPrestazione">
-                    <option>Analisi del sangue</option>
-                    <option>Analisi urina</option>
-                    <option>Test Covid</option>
-                </select>
-            </div>
-            <h5>Codice Fiscale:</h5>
-            <input type="text" asp-for="@Model.Prestazione.CodiceFiscale" />
-        </div>
+<h1>Modifica</h1>
+<p></p>
+ <form method="post">
+      <div class="card" style="width: 18rem; margin-left:1rem">
+           <div class="card-body">
+                  <h5 class="card-title">ID: @Model.mag.codice</h5>
+                  <h5 class="card-title">Nome: @Model.mag.nome</h5>
+                  <h5 class="card-title">Numero Referente: @Model.mag.numero_referente</h5>
+                  <h5 class="card-title">Indirizzo: @Model.mag.indirizzo</h5>
+           </div>
         <button type="submit">Modifica</button>
     </div>
 </form>
