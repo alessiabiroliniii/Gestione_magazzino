@@ -1,4 +1,5 @@
 using Gestione_Magazzino.Data;
+using Gestione_Magazzino.Pages.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Gestione_Magazzino
@@ -35,14 +37,24 @@ namespace Gestione_Magazzino
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
 
-            services.AddHttpClient();
-            services.AddHttpClient("github", c =>
+            services.AddHttpClient<IscrapingRepository, scrapingRepository>(c =>
             {
-                c.BaseAddress = new Uri("https://api.github.com/");
-                // Github API versioning
-                c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
-                // Github requires a user-agent
-                c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
+                c.BaseAddress = new Uri("http://127.0.0.1:1234/");
+            }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                AllowAutoRedirect = false,
+                AutomaticDecompression = System.Net.DecompressionMethods.Deflate | System.Net.DecompressionMethods.GZip,
+                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+            });
+
+            services.AddHttpClient<jwtrepository>(c =>
+            {
+                c.BaseAddress = new Uri("https://localhost:");
+            }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                AllowAutoRedirect = false,
+                AutomaticDecompression = System.Net.DecompressionMethods.Deflate | System.Net.DecompressionMethods.GZip,
+                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
             });
         }
 

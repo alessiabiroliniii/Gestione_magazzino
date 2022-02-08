@@ -86,3 +86,4 @@ C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\Gestione_Magazzino\G
 C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\Gestione_Magazzino\Gestione_Magazzino\obj\Debug\net5.0\ref\Gestione_Magazzino.dll
 C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\Gestione_Magazzino\Gestione_Magazzino\obj\Debug\net5.0\Gestione_Magazzino.pdb
 C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\Gestione_Magazzino\Gestione_Magazzino\obj\Debug\net5.0\Gestione_Magazzino.genruntimeconfig.cache
+C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\Gestione_Magazzino\Gestione_Magazzino\obj\Debug\net5.0\Gestione_Magazzino.csprojAssemblyReference.cache
