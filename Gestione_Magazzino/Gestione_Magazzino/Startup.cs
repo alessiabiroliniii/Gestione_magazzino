@@ -1,3 +1,4 @@
+using gestione_magazzino.Data;
 using Gestione_Magazzino.Data;
 using Gestione_Magazzino.Pages.Service;
 using Microsoft.AspNetCore.Builder;
@@ -30,32 +31,32 @@ namespace Gestione_Magazzino
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
 
-            services.AddHttpClient<IscrapingRepository, scrapingRepository>(c =>
-            {
-                c.BaseAddress = new Uri("http://127.0.0.1:1234/");
-            }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
-            {
-                AllowAutoRedirect = false,
-                AutomaticDecompression = System.Net.DecompressionMethods.Deflate | System.Net.DecompressionMethods.GZip,
-                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-            });
+            //services.AddHttpClient<IscrapingRepository, scrapingRepository>(c =>
+            //{
+            //    c.BaseAddress = new Uri("http://127.0.0.1:1234/");
+            //}).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            //{
+            //    AllowAutoRedirect = false,
+            //    AutomaticDecompression = System.Net.DecompressionMethods.Deflate | System.Net.DecompressionMethods.GZip,
+            //    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+            //});
 
-            services.AddHttpClient<jwtrepository>(c =>
-            {
-                c.BaseAddress = new Uri("https://localhost:");
-            }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
-            {
-                AllowAutoRedirect = false,
-                AutomaticDecompression = System.Net.DecompressionMethods.Deflate | System.Net.DecompressionMethods.GZip,
-                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-            });
+            //services.AddHttpClient<jwtrepository>(c =>
+            //{
+            //    c.BaseAddress = new Uri("https://localhost:");
+            //}).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            //{
+            //    AllowAutoRedirect = false,
+            //    AutomaticDecompression = System.Net.DecompressionMethods.Deflate | System.Net.DecompressionMethods.GZip,
+            //    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
