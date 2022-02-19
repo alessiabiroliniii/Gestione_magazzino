@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gestione_Magazzino.Pages
+namespace gestione_magazzino.Pages
 {
     public class PrivacyModel : PageModel
     {

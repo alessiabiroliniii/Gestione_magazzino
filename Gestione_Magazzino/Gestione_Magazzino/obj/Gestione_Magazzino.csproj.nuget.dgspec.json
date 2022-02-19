@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_Magazzino\\Gestione_Magazzino.csproj": {}
+    "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\gestione_magazzino\\gestione_magazzino\\gestione_magazzino.csproj": {}
   },
   "projects": {
-    "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_Magazzino\\Gestione_Magazzino.csproj": {
+    "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\gestione_magazzino\\gestione_magazzino\\gestione_magazzino.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_Magazzino\\Gestione_Magazzino.csproj",
-        "projectName": "Gestione_Magazzino",
-        "projectPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_Magazzino\\Gestione_Magazzino.csproj",
+        "projectUniqueName": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\gestione_magazzino\\gestione_magazzino\\gestione_magazzino.csproj",
+        "projectName": "gestione_magazzino",
+        "projectPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\gestione_magazzino\\gestione_magazzino\\gestione_magazzino.csproj",
         "packagesPath": "C:\\Users\\birolini.17464\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\Gestione_Magazzino\\Gestione_Magazzino\\obj\\",
+        "outputPath": "C:\\Users\\birolini.17464\\Documents\\GitHub\\Gestione_magazzino\\gestione_magazzino\\gestione_magazzino\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,33 +43,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+            "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[5.0.4, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.4, )"
-            },
-            "Microsoft.AspNetCore.Identity.UI": {
-              "target": "Package",
-              "version": "[5.0.4, )"
-            },
-            "Microsoft.Data.Sqlite.Core": {
-              "target": "Package",
-              "version": "[5.0.14, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.4, )"
-            },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
-              "target": "Package",
-              "version": "[5.0.14, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[13.0.1, )"
             }
           },
           "imports": [

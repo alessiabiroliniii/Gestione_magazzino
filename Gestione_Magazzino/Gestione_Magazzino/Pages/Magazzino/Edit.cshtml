@@ -1,17 +1,4 @@
 ﻿@page
-@model Gestione_Magazzino.Pages.Magazzino.EditModel
+@model gestione_magazzino.Pages.magazzino.EditModel
 @{
 }
-<h1>Modifica</h1>
-<p></p>
- <form method="post">
-      <div class="card" style="width: 18rem; margin-left:1rem">
-           <div class="card-body">
-                  <h5 class="card-title">ID: @Model.mag.codice</h5>
-                  <h5 class="card-title">Nome: @Model.mag.nome</h5>
-                  <h5 class="card-title">Numero Referente: @Model.mag.numero_referente</h5>
-                  <h5 class="card-title">Indirizzo: @Model.mag.indirizzo</h5>
-           </div>
-        <button type="submit">Modifica</button>
-    </div>
-</form>

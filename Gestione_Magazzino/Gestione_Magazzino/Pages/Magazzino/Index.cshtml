@@ -1,21 +1,4 @@
 ﻿@page
-@model Gestione_Magazzino.Pages.Magazzino.IndexModel
+@model gestione_magazzino.Pages.magazzino.IndexModel
 @{
 }
-<h2>Visualizza</h2>
-<p></p>
-<div class="row">
-    @foreach (var item in Model.Ele)
-    {
-        <div class="card" style="width: 18rem; margin-left:1rem">
-            <div class="card-body">
-                <h5 class="card-title">ID: @item.codice</h5>
-                <h5 class="card-title">Nome: @item.nome</h5>
-                <h5 class="card-title">Numero Referente: @item.numero_referente</h5>
-                <h5 class="card-title">Indirizzo: @item.indirizzo</h5>              
-            </div>
-            <a class="btn-danger" asp-page="./Delete" asp-route-id="@item.codice">Elimina</a>
-            <a class="btn-dark" asp-page="./Edit" asp-route-id="@item.codice">Modifica</a>
-        </div>
-    }
-</div>

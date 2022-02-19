@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gestione_Magazzino
+namespace gestione_magazzino
 {
     public class Program
     {

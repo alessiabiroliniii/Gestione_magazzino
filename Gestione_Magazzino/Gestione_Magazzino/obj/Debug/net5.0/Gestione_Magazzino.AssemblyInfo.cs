@@ -11,14 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-Gestione_Magazzino-038569DB-8BB0-43F9-A5BD-F1A018434F00")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("Gestione_Magazzino")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("gestione_magazzino")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("Gestione_Magazzino")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Gestione_Magazzino")]
+[assembly: System.Reflection.AssemblyProductAttribute("gestione_magazzino")]
+[assembly: System.Reflection.AssemblyTitleAttribute("gestione_magazzino")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generato dalla classe WriteCodeFragment di MSBuild.

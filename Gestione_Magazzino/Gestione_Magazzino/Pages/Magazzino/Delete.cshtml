@@ -1,17 +1,4 @@
 ﻿@page
-@model Gestione_Magazzino.Pages.Magazzino.DeleteModel
+@model gestione_magazzino.Pages.magazzino.DeleteModel
 @{
 }
-<h2>Elimina</h2>
-<p></p>
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">ID: @Model.mag.codice</h5>
-        <h5 class="card-title">Nome: @Model.mag.nome</h5>
-        <h5 class="card-title">Numero Referente: @Model.mag.numero_referente</h5>
-        <h5 class="card-title">Indirizzo: @Model.mag.indirizzo</h5> 
-    </div>
-    <form method="post">
-        <button class="btn-danger" asp-route-id="@Model.mag.codice">Elimina</button>
-    </form>
-</div>
