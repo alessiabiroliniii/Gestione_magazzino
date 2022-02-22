@@ -10,45 +10,31 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 
-namespace gestione_magazzino.Pages.prodotti
+namespace gestione_magazzino.Pages.categorie
 {
-    public class EditModel : PageModel
+    public class DeleteModel : PageModel
     {
         static public string URL = "https://gestionemagazzino.pythonanywhere.com/";
         public class User
         {
-            public string nome { get; set; }
-
-            public string quantita { get; set; }
-            public string prezzo { get; set; }
-
-            public string categoria { get; set; }
-            public string magazzino { get; set; }
-            public string data { get; set; }
             public string id { get; set; }
         }
 
-        public void OnPost(string Nome, string Quantita, string Prezzo, string Categoria, string Magazzino, string Data, string Id)
+        public void OnPost(string Id)
         {
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Class.token);
 
-            var result = client.GetStringAsync(URL + "prodotto");
+            var result = client.GetStringAsync(URL + "categorie");
 
             var json = JsonConvert.SerializeObject(new User()
             {
-                nome = Nome,
-                quantita = Quantita,
-                prezzo = Prezzo,
-                categoria = Categoria,
-                magazzino = Magazzino,
-                data = Data,
                 id=Id
             });
             var request = new HttpRequestMessage
             {
-                Method = HttpMethod.Put,
-                RequestUri = new Uri(URL + "prodotto"),
+                Method = HttpMethod.Delete,
+                RequestUri = new Uri(URL + "categorie"),
                 Content = new StringContent(json, Encoding.UTF8, MediaTypeNames.Application.Json)
             };
 

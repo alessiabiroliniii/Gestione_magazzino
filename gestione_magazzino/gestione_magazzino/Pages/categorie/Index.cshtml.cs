@@ -9,52 +9,50 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-namespace gestione_magazzino.Pages.prodotti
+namespace gestione_magazzino.Pages.categorie
 {
-    public class EditModel : PageModel
+    public class IndexModel : PageModel
     {
         static public string URL = "https://gestionemagazzino.pythonanywhere.com/";
         public class User
         {
-            public string nome { get; set; }
+            public string index { get; set; }
 
-            public string quantita { get; set; }
-            public string prezzo { get; set; }
-
-            public string categoria { get; set; }
-            public string magazzino { get; set; }
-            public string data { get; set; }
-            public string id { get; set; }
+            public string amount { get; set; }
         }
+        public class Categoria
+        {
+            public string id { get; set; }
+            public string nome { get; set; }
+        }
+        public List<Categoria> eleCategoria { get; set; }
 
-        public void OnPost(string Nome, string Quantita, string Prezzo, string Categoria, string Magazzino, string Data, string Id)
+        public void OnGet()
         {
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Class.token);
 
-            var result = client.GetStringAsync(URL + "prodotto");
+            var result = client.GetStringAsync(URL + "categoria");
 
             var json = JsonConvert.SerializeObject(new User()
             {
-                nome = Nome,
-                quantita = Quantita,
-                prezzo = Prezzo,
-                categoria = Categoria,
-                magazzino = Magazzino,
-                data = Data,
-                id=Id
+                index = "0",
+                amount = "100"
             });
             var request = new HttpRequestMessage
             {
-                Method = HttpMethod.Put,
-                RequestUri = new Uri(URL + "prodotto"),
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(URL + "categoria"),
                 Content = new StringContent(json, Encoding.UTF8, MediaTypeNames.Application.Json)
             };
 
             HttpResponseMessage response = client.Send(request);
 
-            var responseBody = response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            Task<string> responseBody = response.Content.ReadAsStringAsync();
+            List<Categoria> response2 = JsonConvert.DeserializeObject<List<Categoria>>(JObject.Parse(responseBody.Result)["categorie"].ToString());
+            eleCategoria = response2;
         }
     }
 }

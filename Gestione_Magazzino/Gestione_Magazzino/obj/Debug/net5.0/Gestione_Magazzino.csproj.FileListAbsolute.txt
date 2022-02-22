@@ -96,3 +96,7 @@ C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\gestione_magazzino\g
 C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\gestione_magazzino\gestione_magazzino\obj\Debug\net5.0\Razor\Pages\magazzino\Delete.cshtml.g.cs
 C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\gestione_magazzino\gestione_magazzino\obj\Debug\net5.0\Razor\Pages\magazzino\Edit.cshtml.g.cs
 C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\gestione_magazzino\gestione_magazzino\obj\Debug\net5.0\Razor\Pages\magazzino\Index.cshtml.g.cs
+C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\gestione_magazzino\gestione_magazzino\obj\Debug\net5.0\Razor\Pages\categorie\Create.cshtml.g.cs
+C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\gestione_magazzino\gestione_magazzino\obj\Debug\net5.0\Razor\Pages\categorie\Delete.cshtml.g.cs
+C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\gestione_magazzino\gestione_magazzino\obj\Debug\net5.0\Razor\Pages\categorie\Edit.cshtml.g.cs
+C:\Users\birolini.17464\Documents\GitHub\Gestione_magazzino\gestione_magazzino\gestione_magazzino\obj\Debug\net5.0\Razor\Pages\categorie\Index.cshtml.g.cs

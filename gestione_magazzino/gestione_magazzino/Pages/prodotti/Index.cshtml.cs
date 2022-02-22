@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+
 namespace gestione_magazzino.Pages.prodotti
 {
     public class IndexModel : PageModel
@@ -24,6 +25,17 @@ namespace gestione_magazzino.Pages.prodotti
 
             public string amount { get; set; }
         }
+        public class Prodotto
+        {
+            public string nome { get; set; }
+            public string quantita { get; set; }
+            public string prezzo { get; set; }
+            public string categoria { get; set; }
+            public string magazzino { get; set; }
+            public string data { get; set; }
+            public string id { get; set; }
+        }
+        public List<Prodotto> eleProdotto { get; set; }
 
         public void OnGet()
         {
@@ -41,8 +53,14 @@ namespace gestione_magazzino.Pages.prodotti
             {
                 Method = HttpMethod.Get,
                 RequestUri = new Uri(URL + "prodotto"),
-                Content = StringContent(json, Encoding.UTF8, MediaTypeNames.Application.Json)
+                Content = new StringContent(json, Encoding.UTF8, MediaTypeNames.Application.Json)
             };
+
+            HttpResponseMessage response = client.Send(request);
+
+            Task<string> responseBody = response.Content.ReadAsStringAsync();
+            var response2 = JsonConvert.DeserializeObject<List<Prodotto>>(JObject.Parse(responseBody.Result)["prodotto"].ToString());
+            eleProdotto = response2;
         }
     }
 }
