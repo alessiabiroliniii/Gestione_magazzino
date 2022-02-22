@@ -27,19 +27,19 @@ const _$UserRoleEnumMap = {
   UserRole.user: 'user',
 };
 
-UserDTO _$UserDTOFromJson(Map<String, dynamic> json) => UserDTO(
-      name: json['name'] as String,
-      surname: json['surname'] as String,
+UserRegisterDTO _$UserRegisterDTOFromJson(Map<String, dynamic> json) =>
+    UserRegisterDTO(
+      name: json['nome'] as String,
+      surname: json['cognome'] as String,
       email: json['email'] as String,
-      role: $enumDecode(_$UserRoleEnumMap, json['role']),
       password: json['password'] as String,
     );
 
-Map<String, dynamic> _$UserDTOToJson(UserDTO instance) => <String, dynamic>{
-      'name': instance.name,
-      'surname': instance.surname,
+Map<String, dynamic> _$UserRegisterDTOToJson(UserRegisterDTO instance) =>
+    <String, dynamic>{
+      'nome': instance.name,
+      'cognome': instance.surname,
       'email': instance.email,
-      'role': _$UserRoleEnumMap[instance.role],
       'password': instance.password,
     };
 

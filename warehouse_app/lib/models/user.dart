@@ -29,25 +29,25 @@ class User {
 }
 
 @JsonSerializable()
-class UserDTO {
-  UserDTO({
+class UserRegisterDTO {
+  UserRegisterDTO({
     required this.name,
     required this.surname,
     required this.email,
-    required this.role,
     required this.password,
   });
 
+  @JsonKey(name: "nome")
   final String name;
+  @JsonKey(name: "cognome")
   final String surname;
   final String email;
-  final UserRole role;
   final String password;
 
-  factory UserDTO.fromJson(Map<String, dynamic> json) =>
-      _$UserDTOFromJson(json);
+  factory UserRegisterDTO.fromJson(Map<String, dynamic> json) =>
+      _$UserRegisterDTOFromJson(json);
 
-  Map<String, dynamic> toJson() => _$UserDTOToJson(this);
+  Map<String, dynamic> toJson() => _$UserRegisterDTOToJson(this);
 }
 
 @JsonSerializable()

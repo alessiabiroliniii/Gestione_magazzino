@@ -9,8 +9,8 @@ class Category {
     required this.name,
   });
 
-  final int code;
-  final String name;
+  int code;
+  String name;
 
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
@@ -19,15 +19,16 @@ class Category {
 }
 
 @JsonSerializable()
-class CategoryDTO {
-  CategoryDTO({
+class CategoryCreateDTO {
+  CategoryCreateDTO({
     required this.name,
   });
 
+  @JsonKey(name: "nome")
   final String name;
 
-  factory CategoryDTO.fromJson(Map<String, dynamic> json) =>
-      _$CategoryDTOFromJson(json);
+  factory CategoryCreateDTO.fromJson(Map<String, dynamic> json) =>
+      _$CategoryCreateDTOFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CategoryDTOToJson(this);
+  Map<String, dynamic> toJson() => _$CategoryCreateDTOToJson(this);
 }

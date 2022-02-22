@@ -1,65 +1,45 @@
-import 'package:warehouse_app/api_utility.dart';
+import 'package:flutter/material.dart';
 import 'package:warehouse_app/models/category.dart';
-import 'package:http/http.dart' as http;
 
-class CategoryProvider {
-  Future<Category> create(Category category) async {
-    final response = await http.post(
-      Uri.https(ApiUtulity.apiConnection, ApiUtulity.categoryCreate),
-      body: category.toJson(),
-    );
+class CategoryProvider with ChangeNotifier {
+  final List<Category> categories = [
+    Category(code: 1, name: "Sport"),
+    Category(code: 1, name: "Arredamento"),
+    Category(code: 3, name: "Moto e Macchine"),
+    Category(code: 4, name: "Elettrodomestici"),
+    Category(code: 5, name: "Per la casa"),
+    Category(code: 6, name: "Telefonia"),
+    Category(code: 7, name: "Utensili"),
+  ];
 
-    if (response.statusCode == 200) {
-      // return category.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception("Failed to create category");
-    }
+  Future<void> create(CategoryCreateDTO category) async {
+    await Future.delayed(const Duration(seconds: 1), () {
+      categories.add(
+        Category(
+          code: categories.length + 1,
+          name: category.name,
+        ),
+      );
+    });
+    notifyListeners();
   }
 
   Future<void> delete(int code) async {
-    final response = await http.delete(
-      Uri.https(ApiUtulity.apiConnection, ApiUtulity.categoryDelete),
-      body: code,
-    );
-
-    if (response.statusCode != 200) {
-      throw Exception("Failed to load category");
-    }
+    await Future.delayed(const Duration(seconds: 1), () {
+      categories.removeWhere((element) => element.code == code);
+    });
+    notifyListeners();
   }
 
-  Future<Category> update(int code, CategoryDTO category) async {
-    final response = await http.patch(
-      Uri.https(
-        ApiUtulity.apiConnection,
-        ApiUtulity.categoryUpdate,
-      ),
-      body: {
-        'code': code,
-        'category': category.toJson(),
-      },
-    );
-
-    if (response.statusCode == 200) {
-      // return category.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception("Failed to update category");
-    }
-  }
-
-  Future<List<Category>> read(int index, int limit) async {
-    final response = await http.get(Uri.https(
-      ApiUtulity.apiConnection,
-      ApiUtulity.categoryGet,
-      {
-        'index': index,
-        'limit': limit,
-      },
-    ));
-
-    if (response.statusCode == 200) {
-      // return category.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception("Failed to get category");
-    }
+  Future<void> update(Category category) async {
+    await Future.delayed(const Duration(seconds: 1), () {
+      for (Category item in categories) {
+        if (item.code == category.code) {
+          item.name = category.name;
+          break;
+        }
+      }
+    });
+    notifyListeners();
   }
 }

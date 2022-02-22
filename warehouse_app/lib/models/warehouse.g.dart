@@ -7,28 +7,25 @@ part of 'warehouse.dart';
 // **************************************************************************
 
 Warehouse _$WarehouseFromJson(Map<String, dynamic> json) => Warehouse(
-      code: json['code'] as int,
-      name: json['name'] as String,
-      address: json['address'] as String,
-      phone: json['phone'] as int,
+      id: json['id'] as int,
+      name: json['nome'] as String,
+      address: json['indirizzo'] as String,
     );
 
 Map<String, dynamic> _$WarehouseToJson(Warehouse instance) => <String, dynamic>{
-      'code': instance.code,
-      'name': instance.name,
-      'phone': instance.phone,
-      'address': instance.address,
+      'id': instance.id,
+      'nome': instance.name,
+      'indirizzo': instance.address,
     };
 
-WarehouseDTO _$WarehouseDTOFromJson(Map<String, dynamic> json) => WarehouseDTO(
-      name: json['name'] as String,
-      address: json['address'] as String,
-      phone: json['phone'] as int,
+WarehouseCreateDTO _$WarehouseCreateDTOFromJson(Map<String, dynamic> json) =>
+    WarehouseCreateDTO(
+      name: json['nome'] as String,
+      address: json['indirizzo'] as String,
     );
 
-Map<String, dynamic> _$WarehouseDTOToJson(WarehouseDTO instance) =>
+Map<String, dynamic> _$WarehouseCreateDTOToJson(WarehouseCreateDTO instance) =>
     <String, dynamic>{
-      'name': instance.name,
-      'phone': instance.phone,
-      'address': instance.address,
+      'nome': instance.name,
+      'indirizzo': instance.address,
     };

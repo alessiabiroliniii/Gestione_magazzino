@@ -1,59 +1,88 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:pcto/models/category.dart';
-import 'package:pcto/models/warehouse.dart';
+import 'package:warehouse_app/models/category.dart';
+import 'package:warehouse_app/models/warehouse.dart';
 
 part 'product.g.dart';
 
-@JsonSerializable()
 class Product {
   Product({
     required this.code,
     required this.title,
     required this.date,
-    required this.descrption,
     required this.price,
     required this.quantity,
     required this.category,
     required this.warehouse,
   });
 
-  final int code;
-  final String title;
-  final int quantity;
-  final double price;
-  final DateTime date;
-  final String descrption;
-  final Category category;
-  final Warehouse warehouse;
-
-  factory Product.fromJson(Map<String, dynamic> json) =>
-      _$ProductFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ProductToJson(this);
+  int code;
+  String title;
+  int quantity;
+  double price;
+  DateTime date;
+  Category category;
+  Warehouse warehouse;
 }
 
 @JsonSerializable()
-class ProductDTO {
-  ProductDTO({
+class ProductReadAndUpdateDTO {
+  ProductReadAndUpdateDTO({
+    required this.code,
     required this.title,
     required this.date,
-    required this.descrption,
     required this.price,
     required this.quantity,
     required this.category,
     required this.warehouse,
   });
 
-  final String title;
-  final int quantity;
-  final double price;
-  final DateTime date;
-  final String descrption;
-  final Category category;
-  final Warehouse warehouse;
+  @JsonKey(name: "id")
+  int code;
+  @JsonKey(name: "nome")
+  String title;
+  @JsonKey(name: "quantita")
+  int quantity;
+  @JsonKey(name: "prezzo")
+  double price;
+  @JsonKey(name: "data")
+  DateTime date;
+  @JsonKey(name: "categoria")
+  Category category;
+  @JsonKey(name: "magazzino")
+  Warehouse warehouse;
 
-  factory ProductDTO.fromJson(Map<String, dynamic> json) =>
-      _$ProductDTOFromJson(json);
+  factory ProductReadAndUpdateDTO.fromJson(Map<String, dynamic> json) =>
+      _$ProductReadAndUpdateDTOFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ProductDTOToJson(this);
+  Map<String, dynamic> toJson() => _$ProductReadAndUpdateDTOToJson(this);
+}
+
+@JsonSerializable()
+class ProductCreateDTO {
+  ProductCreateDTO({
+    required this.title,
+    required this.date,
+    required this.price,
+    required this.quantity,
+    required this.category,
+    required this.warehouse,
+  });
+
+  @JsonKey(name: "nome")
+  String title;
+  @JsonKey(name: "quantita")
+  int quantity;
+  @JsonKey(name: "prezzo")
+  double price;
+  @JsonKey(name: "data")
+  DateTime date;
+  @JsonKey(name: "categoria")
+  Category category;
+  @JsonKey(name: "magazzino")
+  Warehouse warehouse;
+
+  factory ProductCreateDTO.fromJson(Map<String, dynamic> json) =>
+      _$ProductCreateDTOFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProductCreateDTOToJson(this);
 }

@@ -6,45 +6,46 @@ part of 'product.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Product _$ProductFromJson(Map<String, dynamic> json) => Product(
-      code: json['code'] as int,
-      title: json['title'] as String,
-      date: DateTime.parse(json['date'] as String),
-      descrption: json['descrption'] as String,
-      price: (json['price'] as num).toDouble(),
-      quantity: json['quantity'] as int,
-      category: Category.fromJson(json['category'] as Map<String, dynamic>),
-      warehouse: Warehouse.fromJson(json['warehouse'] as Map<String, dynamic>),
+ProductReadAndUpdateDTO _$ProductReadAndUpdateDTOFromJson(
+        Map<String, dynamic> json) =>
+    ProductReadAndUpdateDTO(
+      code: json['id'] as int,
+      title: json['nome'] as String,
+      date: DateTime.parse(json['data'] as String),
+      price: (json['prezzo'] as num).toDouble(),
+      quantity: json['quantita'] as int,
+      category: Category.fromJson(json['categoria'] as Map<String, dynamic>),
+      warehouse: Warehouse.fromJson(json['magazzino'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
-      'code': instance.code,
-      'title': instance.title,
-      'quantity': instance.quantity,
-      'price': instance.price,
-      'date': instance.date.toIso8601String(),
-      'descrption': instance.descrption,
-      'category': instance.category,
-      'warehouse': instance.warehouse,
+Map<String, dynamic> _$ProductReadAndUpdateDTOToJson(
+        ProductReadAndUpdateDTO instance) =>
+    <String, dynamic>{
+      'id': instance.code,
+      'nome': instance.title,
+      'quantita': instance.quantity,
+      'prezzo': instance.price,
+      'data': instance.date.toIso8601String(),
+      'categoria': instance.category,
+      'magazzino': instance.warehouse,
     };
 
-ProductDTO _$ProductDTOFromJson(Map<String, dynamic> json) => ProductDTO(
-      title: json['title'] as String,
-      date: DateTime.parse(json['date'] as String),
-      descrption: json['descrption'] as String,
-      price: (json['price'] as num).toDouble(),
-      quantity: json['quantity'] as int,
-      category: Category.fromJson(json['category'] as Map<String, dynamic>),
-      warehouse: Warehouse.fromJson(json['warehouse'] as Map<String, dynamic>),
+ProductCreateDTO _$ProductCreateDTOFromJson(Map<String, dynamic> json) =>
+    ProductCreateDTO(
+      title: json['nome'] as String,
+      date: DateTime.parse(json['data'] as String),
+      price: (json['prezzo'] as num).toDouble(),
+      quantity: json['quantita'] as int,
+      category: Category.fromJson(json['categoria'] as Map<String, dynamic>),
+      warehouse: Warehouse.fromJson(json['magazzino'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$ProductDTOToJson(ProductDTO instance) =>
+Map<String, dynamic> _$ProductCreateDTOToJson(ProductCreateDTO instance) =>
     <String, dynamic>{
-      'title': instance.title,
-      'quantity': instance.quantity,
-      'price': instance.price,
-      'date': instance.date.toIso8601String(),
-      'descrption': instance.descrption,
-      'category': instance.category,
-      'warehouse': instance.warehouse,
+      'nome': instance.title,
+      'quantita': instance.quantity,
+      'prezzo': instance.price,
+      'data': instance.date.toIso8601String(),
+      'categoria': instance.category,
+      'magazzino': instance.warehouse,
     };

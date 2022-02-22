@@ -5,16 +5,17 @@ part 'warehouse.g.dart';
 @JsonSerializable()
 class Warehouse {
   Warehouse({
-    required this.code,
+    required this.id,
     required this.name,
     required this.address,
-    required this.phone,
   });
 
-  final int code;
-  final String name;
-  final int phone;
-  final String address;
+  int id;
+  @JsonKey(name: "nome")
+  String name;
+
+  @JsonKey(name: "indirizzo")
+  String address;
 
   factory Warehouse.fromJson(Map<String, dynamic> json) =>
       _$WarehouseFromJson(json);
@@ -23,19 +24,19 @@ class Warehouse {
 }
 
 @JsonSerializable()
-class WarehouseDTO {
-  WarehouseDTO({
+class WarehouseCreateDTO {
+  WarehouseCreateDTO({
     required this.name,
     required this.address,
-    required this.phone,
   });
 
+  @JsonKey(name: "nome")
   final String name;
-  final int phone;
+  @JsonKey(name: "indirizzo")
   final String address;
 
-  factory WarehouseDTO.fromJson(Map<String, dynamic> json) =>
-      _$WarehouseDTOFromJson(json);
+  factory WarehouseCreateDTO.fromJson(Map<String, dynamic> json) =>
+      _$WarehouseCreateDTOFromJson(json);
 
-  Map<String, dynamic> toJson() => _$WarehouseDTOToJson(this);
+  Map<String, dynamic> toJson() => _$WarehouseCreateDTOToJson(this);
 }

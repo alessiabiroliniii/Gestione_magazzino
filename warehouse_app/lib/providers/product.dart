@@ -1,67 +1,135 @@
-import 'package:warehouse_app/api_utility.dart';
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:warehouse_app/providers/category.dart';
+import 'package:warehouse_app/providers/werehouse.dart';
 import 'package:warehouse_app/models/product.dart';
-import 'package:http/http.dart' as http;
 
-class ProductProvider {
-  Future<Product> create(ProductDTO product) async {
-    final response = await http.post(
-      Uri.https(ApiUtulity.apiConnection, ApiUtulity.productCreate),
-      body: product.toJson(),
-    );
+class ProductProvider with ChangeNotifier {
+  ProductProvider({
+    required this.categoryProvider,
+    required this.warehouseProvider,
+  }) {
+    products.addAll([
+      Product(
+        code: 1,
+        title: "Titolo A",
+        date: DateTime.now(),
+        price: Random().nextInt(10000).toDouble(),
+        quantity: Random().nextInt(1000),
+        category: categoryProvider
+            .categories[Random().nextInt(categoryProvider.categories.length)],
+        warehouse: warehouseProvider
+            .warehouses[Random().nextInt(warehouseProvider.warehouses.length)],
+      ),
+      Product(
+        code: 2,
+        title: "Titolo B",
+        date: DateTime.now(),
+        price: Random().nextInt(10000).toDouble(),
+        quantity: Random().nextInt(1000),
+        category: categoryProvider
+            .categories[Random().nextInt(categoryProvider.categories.length)],
+        warehouse: warehouseProvider
+            .warehouses[Random().nextInt(warehouseProvider.warehouses.length)],
+      ),
+      Product(
+        code: 3,
+        title: "Titolo C",
+        date: DateTime.now(),
+        price: Random().nextInt(10000).toDouble(),
+        quantity: Random().nextInt(1000),
+        category: categoryProvider
+            .categories[Random().nextInt(categoryProvider.categories.length)],
+        warehouse: warehouseProvider
+            .warehouses[Random().nextInt(warehouseProvider.warehouses.length)],
+      ),
+      Product(
+        code: 4,
+        title: "Titolo D",
+        date: DateTime.now(),
+        price: Random().nextInt(10000).toDouble(),
+        quantity: Random().nextInt(1000),
+        category: categoryProvider
+            .categories[Random().nextInt(categoryProvider.categories.length)],
+        warehouse: warehouseProvider
+            .warehouses[Random().nextInt(warehouseProvider.warehouses.length)],
+      ),
+      Product(
+        code: 5,
+        title: "Titolo E",
+        date: DateTime.now(),
+        price: Random().nextInt(10000).toDouble(),
+        quantity: Random().nextInt(1000),
+        category: categoryProvider
+            .categories[Random().nextInt(categoryProvider.categories.length)],
+        warehouse: warehouseProvider
+            .warehouses[Random().nextInt(warehouseProvider.warehouses.length)],
+      ),
+      Product(
+        code: 6,
+        title: "Titolo F",
+        date: DateTime.now(),
+        price: Random().nextInt(10000).toDouble(),
+        quantity: Random().nextInt(1000),
+        category: categoryProvider
+            .categories[Random().nextInt(categoryProvider.categories.length)],
+        warehouse: warehouseProvider
+            .warehouses[Random().nextInt(warehouseProvider.warehouses.length)],
+      ),
+      Product(
+        code: 7,
+        title: "Titolo G",
+        date: DateTime.now(),
+        price: Random().nextInt(10000).toDouble(),
+        quantity: Random().nextInt(1000),
+        category: categoryProvider
+            .categories[Random().nextInt(categoryProvider.categories.length)],
+        warehouse: warehouseProvider
+            .warehouses[Random().nextInt(warehouseProvider.warehouses.length)],
+      ),
+    ]);
+  }
 
-    if (response.statusCode == 200) {
-      // return Product.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception("Failed to create Product");
-    }
+  final WarehouseProvider warehouseProvider;
+  final CategoryProvider categoryProvider;
+
+  List<Product> products = [];
+
+  Future<void> create(ProductCreateDTO product) async {
+    await Future.delayed(const Duration(seconds: 1), () {
+      products.add(Product(
+        code: products.length + 1,
+        title: product.title,
+        date: product.date,
+        price: product.price,
+        quantity: product.quantity,
+        category: product.category,
+        warehouse: product.warehouse,
+      ));
+    });
+    notifyListeners();
   }
 
   Future<void> delete(int code) async {
-    final response = await http.delete(
-      Uri.https(ApiUtulity.apiConnection, ApiUtulity.productDelete),
-      body: code,
-    );
-
-    if (response.statusCode != 200) {
-      throw Exception("Failed to load Product");
-    }
+    await Future.delayed(const Duration(seconds: 1), () {
+      products.removeWhere((element) => element.code == code);
+    });
+    notifyListeners();
   }
 
-  Future<Product> update(int code, ProductDTO product) async {
-    final response = await http.patch(
-      Uri.https(
-        ApiUtulity.apiConnection,
-        ApiUtulity.productUpdate,
-      ),
-      body: {
-        'code': code,
-        'product': product.toJson(),
-      },
-    );
+  Future<void> update(ProductReadAndUpdateDTO product) async {
+    await Future.delayed(const Duration(seconds: 1), () {
+      final Product tempProduct =
+          products.where((element) => element.code == product.code).first;
 
-    if (response.statusCode == 200) {
-      // return Product.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception("Failed to update Product");
-    }
-  }
-
-  Future<List<Product>> read(int index, int limit) async {
-    final queryParameters = {
-      'index': index,
-      'limit': limit,
-    };
-
-    final response = await http.get(Uri.https(
-      ApiUtulity.apiConnection,
-      ApiUtulity.productGet,
-      queryParameters,
-    ));
-
-    if (response.statusCode == 200) {
-      // return Product.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception("Failed to get Product");
-    }
+      tempProduct.category = product.category;
+      tempProduct.warehouse = product.warehouse;
+      tempProduct.title = product.title;
+      tempProduct.quantity = product.quantity;
+      tempProduct.price = product.price;
+      tempProduct.date = product.date;
+    });
+    notifyListeners();
   }
 }

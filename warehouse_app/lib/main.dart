@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_app/pages/auth_controller.dart';
+import 'package:warehouse_app/pages/navigator.dart';
 import 'package:warehouse_app/providers/category.dart';
-import 'package:warehouse_app/providers/jwt.dart';
+import 'package:warehouse_app/providers/auth.dart';
 import 'package:warehouse_app/providers/product.dart';
 import 'package:warehouse_app/providers/werehouse.dart';
 import 'package:provider/provider.dart';
@@ -12,85 +14,136 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "pcto",
-      home: MultiProvider(
-        providers: [
-          Provider<ProductProvider>(
-            create: (_) => ProductProvider(),
-          ),
-          Provider<CategoryProvider>(
-            create: (_) => CategoryProvider(),
-          ),
-          Provider<WerehouseProvider>(
-            create: (_) => WerehouseProvider(),
-          ),
-          Provider<JwtProvider>(
-            create: (_) => JwtProvider(),
-          ),
-        ],
-        child: const AppNavigator(),
+    return const MaterialApp(
+      title: "warehouse_pcto",
+      debugShowCheckedModeBanner: false,
+      home: AuthInitializer(),
+    );
+  }
+}
+
+class AuthInitializer extends StatefulWidget {
+  const AuthInitializer({Key? key}) : super(key: key);
+
+  @override
+  State<AuthInitializer> createState() => _AuthInitializerState();
+}
+
+class _AuthInitializerState extends State<AuthInitializer> {
+  final AuthProvider authProvider = AuthProvider();
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<AuthProvider>.value(
+      value: authProvider,
+      child: FutureBuilder(
+        future: authProvider.init(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState != ConnectionState.waiting) {
+            return const Wrapper();
+          }
+
+          return Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text("Checking user"),
+                  CircularProgressIndicator(),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
 }
 
-class AppNavigator extends StatefulWidget {
-  const AppNavigator({Key? key}) : super(key: key);
-
-  @override
-  _AppNavigatorState createState() => _AppNavigatorState();
-}
-
-class _AppNavigatorState extends State<AppNavigator> {
-  final List<Widget> pages = [
-    const HomePage(),
-  ];
-
-  final List<BottomNavigationBarItem> icons = [
-    const BottomNavigationBarItem(icon: Icon(Icons.home)),
-    const BottomNavigationBarItem(icon: Icon(Icons.camera)),
-    const BottomNavigationBarItem(icon: Icon(Icons.info)),
-  ];
-
-  int index = 0;
+class Wrapper extends StatelessWidget {
+  const Wrapper({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: index,
-        items: icons,
-        onTap: (value) => setState(() => index = value),
-      ),
-      body: IndexedStack(index: index, children: pages),
+    return Consumer<AuthProvider>(
+      builder: (context, authProvider, widget) {
+        if (authProvider.token != null) {
+          return ProviderInitializer(authProvider: authProvider);
+        }
+
+        return const AuthenticationController();
+      },
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class ProviderInitializer extends StatefulWidget {
+  const ProviderInitializer({
+    Key? key,
+    required this.authProvider,
+  }) : super(key: key);
+
+  final AuthProvider authProvider;
 
   @override
-  Widget build(BuildContext context) {
-    return const Scaffold();
-  }
+  State<ProviderInitializer> createState() => _ProviderInitializerState();
 }
 
-class InfoPage extends StatelessWidget {
-  const InfoPage({Key? key}) : super(key: key);
+class _ProviderInitializerState extends State<ProviderInitializer> {
+  bool isInitialized = false;
+  late ProductProvider productProvider;
+  late CategoryProvider categoryProvider;
+  late WarehouseProvider warehouseProvider;
 
   @override
-  Widget build(BuildContext context) {
-    return const Scaffold();
+  void initState() {
+    super.initState();
+    initializeProvider();
   }
-}
 
-class CameraPage extends StatelessWidget {
-  const CameraPage({Key? key}) : super(key: key);
+  void initializeProvider() async {
+    warehouseProvider = WarehouseProvider();
+    categoryProvider = CategoryProvider();
+    productProvider = ProductProvider(
+      categoryProvider: categoryProvider,
+      warehouseProvider: warehouseProvider,
+    );
+
+    if (mounted) {
+      setState(() => isInitialized = true);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    if (!isInitialized) {
+      return Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text("L'app si sta caricando..."),
+              SizedBox(height: 20),
+              CircularProgressIndicator(),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ProductProvider>.value(
+          value: productProvider,
+        ),
+        ChangeNotifierProvider<CategoryProvider>.value(
+          value: categoryProvider,
+        ),
+        ChangeNotifierProvider<WarehouseProvider>.value(
+          value: warehouseProvider,
+        ),
+      ],
+      child: const AppNavigator(),
+    );
   }
 }

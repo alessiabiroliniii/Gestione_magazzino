@@ -16,11 +16,12 @@ Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
       'name': instance.name,
     };
 
-CategoryDTO _$CategoryDTOFromJson(Map<String, dynamic> json) => CategoryDTO(
-      name: json['name'] as String,
+CategoryCreateDTO _$CategoryCreateDTOFromJson(Map<String, dynamic> json) =>
+    CategoryCreateDTO(
+      name: json['nome'] as String,
     );
 
-Map<String, dynamic> _$CategoryDTOToJson(CategoryDTO instance) =>
+Map<String, dynamic> _$CategoryCreateDTOToJson(CategoryCreateDTO instance) =>
     <String, dynamic>{
-      'name': instance.name,
+      'nome': instance.name,
     };

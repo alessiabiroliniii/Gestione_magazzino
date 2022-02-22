@@ -1,6 +1,6 @@
 name: warehouse_app
 description: Best warehouse mangement in the world.
-publish_to: 'martin'
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -10,13 +10,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   image_picker: ^0.8.4+4
   provider: ^6.0.2
   json_annotation: ^4.4.0
   http: ^0.13.4
-
+  gdpr_dialog: ^2.1.1
   cupertino_icons: ^1.0.2
+  shared_preferences: ^2.0.12
+  dropdown_formfield: ^0.1.4
 
 dev_dependencies:
   flutter_test:
