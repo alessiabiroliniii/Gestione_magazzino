@@ -4,6 +4,7 @@
 }
 
 <h2>Visualizza categorie</h2>
+<a asp-page="./Create">Create New</a>
 <p></p>
 <div class="row">
     @foreach (var item in @Model.eleCategoria)
@@ -11,7 +12,7 @@
         <div class="card" style="width: 18rem; margin-left:1rem">
             <div class="card-body">
                 <h5 class="card-title">ID: @item.id</h5>
-                <h5 class="card-title">Tipo: @item.nome</h5>
+                <h5 class="card-title">Nome categoria: @item.nome</h5>
             </div>
             <a class="btn-danger" asp-page="./Delete" asp-route-id="@item.id">Elimina</a>
             <a class="btn-dark" asp-page="./Edit" asp-route-id="@item.id">Modifica</a>
